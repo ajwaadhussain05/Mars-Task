@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <math.h>  
+
+//define const value of PI
+#define PI 3.14159265358979323846 
+
+//fxn to convert Euler angles (pitch, yaw, roll) to a quaternion
+void conversion(float pitch, float yaw, float roll, float *q) {
+    //convert pitch, yaw, and roll from degrees to radians
+    float pitchRad = pitch * (PI / 180.0);
+    float yawRad = yaw * (PI / 180.0);
+    float rollRad = roll * (PI / 180.0);
+
+    //cal the quaternion components based on the Euler angles
+    q[0] = cos(pitchRad / 2) * cos(yawRad / 2) * cos(rollRad / 2) + 
+           sin(pitchRad / 2) * sin(yawRad / 2) * sin(rollRad / 2); 
+           
+    q[1] = sin(pitchRad / 2) * cos(yawRad / 2) * cos(rollRad / 2) - 
+           cos(pitchRad / 2) * sin(yawRad / 2) * sin(rollRad / 2); 
+           
+    q[2] = cos(pitchRad / 2) * sin(yawRad / 2) * cos(rollRad / 2) + 
+           sin(pitchRad / 2) * cos(yawRad / 2) * sin(rollRad / 2); 
+           
+    q[3] = cos(pitchRad / 2) * cos(yawRad / 2) * sin(rollRad / 2) - 
+           sin(pitchRad / 2) * sin(yawRad / 2) * cos(rollRad / 2); 
+}
+
+int main() {
+    float pitch, yaw, roll; 
+    float quaternary[4];
+
+    printf("Enter pitch (in degrees): ");
+    scanf("%f", &pitch);  //get the pitch angle from user input
+
+    printf("Enter yaw (in degrees): ");
+    scanf("%f", &yaw);    //get the yaw angle from user input
+
+    printf("Enter roll (in degrees): ");
+    scanf("%f", &roll);   //get the roll angle from user input
+
+    //fxn to convert Euler angles to quaternion
+    conversion(pitch, yaw, roll, quaternary);
+
+    //print the quaternion representation with four decimal places
+    printf("Quaternion representation: (%.4f, %.4f, %.4f, %.4f)\n", 
+           quaternary[0], quaternary[1], quaternary[2], quaternary[3]);
+
+    return 0;
+}
