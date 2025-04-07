@@ -1,3 +1,4 @@
+//Built a system for the rover Brick to detect a red marker using a front-mounted camera and navigate to it.
 #include <stdio.h> 
 #include <math.h>  
 
