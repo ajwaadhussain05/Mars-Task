@@ -1,3 +1,4 @@
+#Developed a program to decode incoming Morse code messages from the rover to readable English.
 #morse code dictionary
 MORSE_CODE_DICT = {
     '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', 
