@@ -1,3 +1,4 @@
+//Converted Earth-style 3D rotations into the Martian 4-number format to avoid Gimbal lock.
 #include <stdio.h>
 #include <math.h>  
 
