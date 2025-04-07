@@ -1,3 +1,4 @@
+//Processed unstable sensor readings caused by microgravity to find the most reliable value.
 #include <stdio.h>
 
 //fxn to calculate the moving avg of the data
